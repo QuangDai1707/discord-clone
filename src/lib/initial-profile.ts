@@ -2,10 +2,10 @@ import { currentUser, auth } from "@clerk/nextjs/server";
 import { RedirectToSignIn } from "@clerk/nextjs";
 import { db } from "./db";
 
-export const initialProfile = async()=>{
+export const initialProfile = async () => {
     const user = await currentUser();
-    const {userId, redirectToSignIn} = await auth()
-    if (!user || !userId){
+    const { userId, redirectToSignIn } = await auth()
+    if (!user || !userId) {
         return redirectToSignIn();
     }
 
@@ -15,7 +15,7 @@ export const initialProfile = async()=>{
         }
     })
 
-    if (profile){
+    if (profile) {
         return profile;
     }
 

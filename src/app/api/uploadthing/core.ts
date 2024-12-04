@@ -4,8 +4,8 @@ import { UploadThingError } from "uploadthing/server";
 
 const f = createUploadthing();
 
-const handleAuth = () => {
-    const userId = Auth()
+const handleAuth = async() => {
+    const {userId} = await Auth()
     if (!userId) throw new Error("Unauthoried Access!!!")
     return { userId: userId }
 }
